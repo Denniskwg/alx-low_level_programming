@@ -1,6 +1,7 @@
-*.c
+main.c
 c
 *.o
 *.s
 *.i
 cisfun
+*.out
