@@ -5,3 +5,6 @@ c
 *.i
 cisfun
 *.out
+0-positive_or_negative
+size32
+size64
