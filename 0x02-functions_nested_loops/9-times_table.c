@@ -25,9 +25,13 @@ void times_table(void)
 				_putchar(sum / 10 + '0');
 				_putchar(sum % 10 + '0');
 			}
-			else
+			else if (j != 0)
 			{
 				_putchar(' ');
+				_putchar(sum + '0');
+			}
+			else
+			{
 				_putchar(sum + '0');
 			}
 			if (j < 9)
