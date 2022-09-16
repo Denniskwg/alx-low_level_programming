@@ -16,6 +16,7 @@ int main(void)
 		if (num % count == 0)
 		{
 			printf("%d\n", count);
+			break;
 		}
 	}
 	return (0);
