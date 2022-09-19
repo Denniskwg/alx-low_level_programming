@@ -6,24 +6,26 @@
  */
 void print_rev(char *s)
 {
-	int i, j, k, count = 0;
-	char rev[100];
+	int i, j;
+	int count = 0;
 
-	while (s[count] != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		count++;
 	}
-	j = count - 1;
 
-	for (i = 0; i < count; i++)
+	for (j = count - 1; s[j] != '\0'; j--)
 	{
-		rev[i] = s[j];
-		j--;
-	}
-
-	for (k = 0; k < count; k++)
-	{
-		_putchar(rev[k]);
+		_putchar(s[j]);
 	}
 	_putchar('\n');
+}
+
+int main(void)
+{
+	char *str;
+
+	str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
+	print_rev(str);
+	return (0);
 }
