@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * _puts - prints a string to stdout
+ * @str: the string to print
+ */
+
 void _puts(char *str)
 {
 	int i;
@@ -9,13 +14,4 @@ void _puts(char *str)
 		_putchar(str[i]);
 	}
 	_putchar('\n');
-}
-
-int main(void)
-{
-	char *str;
-
-	str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
-	_puts(str);
-	return (0);
 }
