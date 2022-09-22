@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strcmp - compares two strings lexicographically
@@ -13,34 +14,22 @@
 int _strcmp(char *s1, char *s2)
 {
 	int i;
-	int j;
-	int count = 0;
-	int res;
 
-	for (j = 0; s1[j] != '\0'; j++)
+	for (i = 0; s1[i] != '\0' || s2[i] != '\0'; i++)
 	{
-		count++;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 	}
+	return (0);
+}
 
-	for (i = 0; s1[i] != '\0' && i < count; i++)
-	{
-		if (s1[i] == s2[i])
-		{
-			res = 0;
-		}
-		else
-		{
-			if (s1[i] > s2[i])
-			{
-				res = 15;
-				break;
-			}
-			else
-			{
-				res = -15;
-				break;
-			}
-		}
-	}
-	return (res);
+int main(void)
+{
+	char s1[] = "Hello";
+	char s2[] = "World!";
+
+	printf("%d\n", _strcmp(s1, s2));
+	printf("%d\n", _strcmp(s2, s1));
+	printf("%d\n", _strcmp(s1, s1));
+	return (0);
 }
