@@ -20,6 +20,10 @@ char *cap_string(char *str)
 			{
 			if (*(str + (c + 1)) >= 97 && *(str + (c + 1)) <= 122)
 				*(str + (c + 1)) -= 32;
+			else if (*(str + (c + 1)) > 64 && *(str + (c + 1)) < 91)
+				continue;
+			else if (*(str + (c + 1)) > 47 && *(str + (c + 1)) < 58)
+				continue;
 			}
 		}
 	}
