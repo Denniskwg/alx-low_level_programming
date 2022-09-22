@@ -16,6 +16,8 @@ char *cap_string(char *str)
 	{
 		for (c = 0; str[c] != '\0'; c++)
 		{
+			if (str[0] > 96 && str[0] < 123)
+				*(str) -= 32;
 			if (str[c] == symbol[i])
 			{
 			if (*(str + (c + 1)) >= 97 && *(str + (c + 1)) <= 122)
