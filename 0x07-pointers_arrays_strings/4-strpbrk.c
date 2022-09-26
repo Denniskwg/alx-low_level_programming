@@ -33,6 +33,6 @@ char *_strpbrk(char *s, char *accept)
 			min = arr[i];
 	}
 	if (counter == 0)
-		return ('\0');
+		return (0);
 	return (s + min);
 }
