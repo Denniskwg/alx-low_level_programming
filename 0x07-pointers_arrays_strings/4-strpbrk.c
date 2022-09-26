@@ -8,31 +8,22 @@
 char *_strpbrk(char *s, char *accept)
 {
 	int i, j;
-	int k = 0;
-	int min;
-	int arr[5];
-	int counter = 5;
+	char *p;
 
-	for (i = 0; accept[i] != '\0'; i++)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		for (j = 0; s[j] != '\0' && k < 5; j++)
+		j = 0;
+		while (accept[j] != '\0')
 		{
-			if (accept[i] == s[j])
+			if (accept[j] == s[i])
 			{
-				arr[k] = j;
-				k++;
+				p = &s[i];
+				return (p);
 			}
-			else
-				counter--;
+			j++;
 		}
+		i++;
 	}
-	min = arr[0];
-	for (i = 0; i < 5; i++)
-	{
-		if (min > arr[i])
-			min = arr[i];
-	}
-	if (counter == 0)
-		return (0);
-	return (s + min);
+	return (0);
 }
