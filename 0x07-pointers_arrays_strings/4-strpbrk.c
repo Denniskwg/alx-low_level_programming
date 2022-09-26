@@ -7,10 +7,18 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-	int i, j;
-	int arr[5];
+	int i, j, l;
 	int k = 0;
 	int min;
+	int counter = 0;
+
+	l = 0;
+	while (accept[l] != '\0')
+	{
+		counter++;
+		l++;
+	}
+	int arr[counter];
 
 	for (i = 0; accept[i] != '\0'; i++)
 	{
@@ -24,7 +32,7 @@ char *_strpbrk(char *s, char *accept)
 		}
 	}
 	min = arr[0];
-	for (i = 0; i < 5; i++)
+	for (i = 0; i < counter; i++)
 	{
 		if (min > arr[i])
 			min = arr[i];
