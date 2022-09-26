@@ -11,6 +11,7 @@ char *_strpbrk(char *s, char *accept)
 	int k = 0;
 	int min;
 	int arr[5];
+	int counter = 5;
 
 	for (i = 0; accept[i] != '\0'; i++)
 	{
@@ -22,7 +23,7 @@ char *_strpbrk(char *s, char *accept)
 				k++;
 			}
 			else
-				return ('\0');
+				counter--;
 		}
 	}
 	min = arr[0];
@@ -31,5 +32,7 @@ char *_strpbrk(char *s, char *accept)
 		if (min > arr[i])
 			min = arr[i];
 	}
+	if (counter == 0)
+		return ('\0');
 	return (s + min);
 }
