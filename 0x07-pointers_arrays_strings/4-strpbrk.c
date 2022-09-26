@@ -29,5 +29,7 @@ char *_strpbrk(char *s, char *accept)
 		if (min > arr[i])
 			min = arr[i];
 	}
+	if (!min)
+		return ('\0');
 	return (s + min);
 }
