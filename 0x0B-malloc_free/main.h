@@ -5,4 +5,4 @@ int slength(char *s);
 int **alloc_grid(int width, int height);
 void free_grid(int **grid, int height);
 char *argstostr(int ac, char **av);
-int slength(char *s);
+int slength1(char *s);

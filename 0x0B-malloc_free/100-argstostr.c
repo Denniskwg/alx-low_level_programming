@@ -18,7 +18,7 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 	for (i = 0; i < ac; i++)
 	{
-		j = slength(*(av + i));
+		j = slength1(*(av + i));
 		length += j;
 	}
 	ptr = malloc(sizeof(char) * (length + (ac + 1)));
@@ -30,7 +30,7 @@ char *argstostr(int ac, char **av)
 	{
 		s = *(av + i);
 		v = 0;
-		while (s[v] != '\0' && v < slength(s))
+		while (s[v] != '\0' && v < slength1(s))
 		{
 			ptr[k] = s[v];
 			v++;
@@ -49,7 +49,7 @@ char *argstostr(int ac, char **av)
  * @s: pointer to a string
  * Return: length of string pointed to by s
  */
-int slength(char *s)
+int slength1(char *s)
 {
 	int i;
 
