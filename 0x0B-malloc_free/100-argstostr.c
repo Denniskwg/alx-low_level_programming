@@ -45,7 +45,7 @@ char *argstostr(int ac, char **av)
 	return (ptr);
 }
 /**
- * slength - returns the length of a string
+ * slength1 - returns the length of a string
  * @s: pointer to a string
  * Return: length of string pointed to by s
  */
