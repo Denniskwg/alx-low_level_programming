@@ -25,10 +25,10 @@ char *argstostr(int ac, char **av)
 	if (ptr == NULL)
 		return (NULL);
 	k = 0;
-	i = 1;
-	while (i <= ac)
+	i = 0;
+	while (i < ac)
 	{
-		s = *(av++);
+		s = *(av + i);
 		v = 0;
 		while (s[v] != '\0' && v < slength(s))
 		{
@@ -37,7 +37,7 @@ char *argstostr(int ac, char **av)
 			k++;
 		}
 		ptr[k] = '\n';
-		if (i < ac - 1)
+		if (i < ac)
 			k++;
 		i++;
 	}
