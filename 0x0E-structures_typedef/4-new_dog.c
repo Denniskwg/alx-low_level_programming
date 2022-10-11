@@ -1,5 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
  * new_dog - creates a new dog.
  * You have to store a copy of name and owner
@@ -11,11 +12,59 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newdog;
+	struct dog *newdog;
+	int i, j, k, l;
+	char *n, *o;
 
-	newdog = malloc(sizeof(dog_t));
-	newdog->name = name;
+	i = length(name);
+	j = length(owner);
+	newdog = malloc(sizeof(struct dog));
+	if (newdog == NULL)
+		return (NULL);
+	n = malloc(sizeof(char) * i + 1);
+	if (n == NULL)
+	{
+		free(newdog);
+		return (NULL);
+	}
+	k = 0;
+	while (k <= i)
+	{
+		n[k] = name[k];
+		k++;
+	}
+	n[k] = '\0';
+	o = malloc(sizeof(char) * j + 1);
+	if (o == NULL)
+	{
+		free(newdog);
+		free(n);
+		return (NULL);
+	}
+	l = 0;
+	while (l <= j)
+	{
+		o[l] = owner[l];
+		l++;
+	}
+	o[l] = '\0';
+	newdog->name = n;
 	newdog->age = age;
-	newdog->owner = owner;
+	newdog->owner = o;
 	return (newdog);
+}
+/**
+ * length - calculates length of a string
+ * @s: pointer to string
+ * Return: length of a string
+ */
+int length(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
