@@ -1,5 +1,5 @@
-#ifndef THREE_CALC_H
-#define THREE_CALC_H
+#ifndef CALC_H
+#define CALC_H
 /**
  * struct op - Struct op
  * @op: The operator
