@@ -21,25 +21,25 @@ void print_all(const char * const format, ...)
 		{
 			case 'c':
 				printf("%c", va_arg(ap, int));
-				k++;
+				k = 1;
 				break;
 			case 'f':
 				printf("%f", va_arg(ap, double));
-				k++;
+				k = 1;
 				break;
 			case 'i':
 				printf("%d", va_arg(ap, int));
-				k++;
+				k = 1;
 				break;
 			case 's':
 				s = va_arg(ap, char *);
 				if (s == NULL)
 					s = "(nil)";
 				printf("%s", s);
-				k++;
+				k = 1;
 				break;
 			default:
-				k--;
+				k = 0;
 				break;
 		}
 		if ((i < j - 1) && k)
