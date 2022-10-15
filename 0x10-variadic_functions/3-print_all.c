@@ -9,10 +9,10 @@
 
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0;
+	int i = 0, k = 0;
 	va_list ap;
 	char *s;
-	double p;
+	int j = length(format);
 
 	va_start(ap, format);
 	while (format != NULL && format[i] != '\0')
@@ -21,31 +21,44 @@ void print_all(const char * const format, ...)
 		{
 			case 'c':
 				printf("%c", va_arg(ap, int));
-				printf(", ");
+				k++;
 				break;
 			case 'f':
-				p = va_arg(ap, double);
-				if (p)
-				{
-					printf("%f", va_arg(ap, double));
-					printf(", ");
-				}
+				printf("%f", va_arg(ap, double));
+				k++;
 				break;
 			case 'i':
 				printf("%d", va_arg(ap, int));
-				printf(", ");
+				k++;
 				break;
 			case 's':
 				s = va_arg(ap, char *);
 				if (s == NULL)
 					s = "(nil)";
 				printf("%s", s);
+				k++;
 				break;
 			default:
+				k--;
 				break;
 		}
+		if ((i < j - 1) && k)
+			printf(", ");
 		i++;
 	}
 	va_end(ap);
 	printf("\n");
+}
+/**
+ * length - calculates length of a string
+ * @s: pointer to string
+ * Return: length of a string
+ */
+int length(const char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
