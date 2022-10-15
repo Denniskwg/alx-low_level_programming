@@ -12,6 +12,7 @@ void print_all(const char * const format, ...)
 	unsigned int i = 0;
 	va_list ap;
 	char *s;
+	double p;
 
 	va_start(ap, format);
 	while (format != NULL && format[i] != '\0')
@@ -19,26 +20,29 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-			printf("%c", va_arg(ap, int));
-			printf(", ");
-			break;
-
+				printf("%c", va_arg(ap, int));
+				printf(", ");
+				break;
 			case 'e':
-			if (va_arg(ap, double))
-				printf("%f", va_arg(ap, double));
-			break;
-
+				p = va_arg(ap, double);
+				if (p)
+				{
+					printf("%f", va_arg(ap, double));
+					printf(", ");
+				}
+				break;
 			case 'i':
-			printf("%d", va_arg(ap, int));
-			printf(", ");
-			break;
-
+				printf("%d", va_arg(ap, int));
+				printf(", ");
+				break;
 			case 's':
-			s = va_arg(ap, char *);
-			if (s == NULL)
-				s = "(nil)";
-			printf("%s", s);
-			break;
+				s = va_arg(ap, char *);
+				if (s == NULL)
+					s = "(nil)";
+				printf("%s", s);
+				break;
+			default:
+				break;
 		}
 		i++;
 	}
