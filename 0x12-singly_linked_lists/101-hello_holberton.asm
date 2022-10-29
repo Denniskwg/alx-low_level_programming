@@ -6,7 +6,9 @@ mov al,0
 
 extern printf
 call printf
-ret
+
+mov eax,1
+int 0x80
 
 section .data
 msg db 'Hello, Holberton', 0xa
