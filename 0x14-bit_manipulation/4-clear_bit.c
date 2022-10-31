@@ -9,7 +9,7 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int mask;
+	size_t mask;
 	unsigned long int j;
 
 	if (n == NULL || index > 31)
