@@ -15,7 +15,7 @@ void print_binary(unsigned long int n)
 	}
 	for (i = 31; i >= 0; i--)
 	{
-		int mask = (1 << i);
+		unsigned long mask = (unsigned long)(1 << i);
 
 		if (n & mask)
 		{
