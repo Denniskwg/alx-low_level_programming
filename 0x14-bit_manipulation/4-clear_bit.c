@@ -12,7 +12,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	int mask;
 	unsigned long int j;
 
-	if (n == NULL || index > 31 || index <= 0)
+	if (n == NULL || index > 31 || index == 0)
 		return (-1);
 	mask = (1 << index);
 	j = *n;
