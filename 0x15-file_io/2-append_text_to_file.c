@@ -13,7 +13,7 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, l = 0;
+	int fd, l = 0, j;
 
 	if (filename == NULL)
 		return (-1);
@@ -32,7 +32,9 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 	while (text_content[l] != '\0')
 		l++;
-	write(fd, text_content, l);
+	j = write(fd, text_content, l);
+	if (j == -1)
+		return (-1);
 	close(fd);
 	return (1);
 }
