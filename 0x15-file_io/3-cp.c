@@ -32,9 +32,17 @@ int main(int argc, char **argv)
 	while (j == n)
 	{
 		n = read(fd, buffer, 1);
-		if (n == -1)
+		if (n == 0 || n == -1)
+		{
+			buffer[0] = '\0';
 			break;
+		}
 		j = write(fd2, buffer, n);
+		if (j == -1 || j == 0)
+		{
+			buffer[0] = '\0';
+			break;
+		}
 		buffer[0] = '\0';
 	}
 	if (n == -1)
