@@ -29,9 +29,11 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	while (j == n && n >= 0)
+	while (j == n)
 	{
 		n = read(fd, buffer, 1);
+		if (n == -1)
+			break;
 		j = write(fd2, buffer, n);
 		buffer[0] = '\0';
 	}
