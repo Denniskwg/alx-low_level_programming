@@ -8,7 +8,7 @@
 
 int main(int argc, char **argv)
 {
-	int fd, fd2, n;
+	int fd, fd2, i;
 	char buffer[1024];
 	ssize_t n = 0, j = 0;
 
@@ -45,16 +45,16 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	n = close(fd);
-	if (n == -1)
+	i = close(fd);
+	if (i == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", n);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", i);
 		exit(100);
 	}
-	n = close(fd2);
-	if (n == -1)
+	i = close(fd2);
+	if (i == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", n);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", i);
 		exit(100);
 	}
 	return (0);
