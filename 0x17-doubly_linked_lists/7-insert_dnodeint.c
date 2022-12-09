@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * insert_dnodeint_at_idx - insert a new node at given position
+ * insert_dnodeint_at_idx - inserts a new node at given position
  * @h: double pointer to head
  * @idx: index to insert into
  * @n: value to store in new node
@@ -19,6 +19,22 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		new = add_dnodeint(&current, n);
 		*h = new;
+		return (new);
+	}
+	if (idx == 1)
+	{
+		prev = current;
+		current = current->next;
+		new = malloc(sizeof(*new));
+		if (new)
+		{
+			new->n = n;
+			new->next = current;
+			new->prev = prev;
+			prev->next = new;
+			if (current)
+				current->prev = new;
+		}
 		return (new);
 	}
 	while (current != NULL)
