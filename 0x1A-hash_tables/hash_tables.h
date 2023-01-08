@@ -1,5 +1,5 @@
-#ifndef HASH_TABLES
-#define HASH_TABLES
+#ifndef HASH_TABLES_H
+#define HASH_TABLES_H
 /**
  * struct hash_node_s - Node of a hash table
  * @key: The key, string
