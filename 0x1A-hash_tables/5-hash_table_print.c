@@ -14,10 +14,10 @@ void hash_table_print(const hash_table_t *ht)
 	if (ht == NULL)
 		return;
 
-	current = ht->array[i];
 	printf("{");
-	while (i < ht->size)
+	for (i = 0; i < ht->size; i++)
 	{
+		current = ht->array[i];
 		if (current)
 		{
 			if (flag == 1)
@@ -32,8 +32,6 @@ void hash_table_print(const hash_table_t *ht)
 			}
 			flag = 1;
 		}
-		i++;
-		current = ht->array[i];
 	}
 	printf("}\n");
 }
