@@ -34,21 +34,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	current = ht->array[index];
 	item = malloc(sizeof(item));
 	if (item == NULL)
+	{
+		free(value_copy);
 		return (0);
+	}
 	item->key = strdup(key);
 	if (item->key == NULL)
 	{
 		free(item);
+		free(value_copy);
 		return (0);
 	}
 	item->value = value_copy;
-	item->next = NULL;
-	if (current != NULL)
-	{
-		/*collision*/
-		item->next = current;
-	}
-	else
-		ht->array[index] = item;
+	item->next = ht->array[index];
+	ht->array[index] = item;
 	return (1);
 }
