@@ -26,6 +26,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (strcmp(current->key, key) == 0)
 		{
+			free(current->value);
 			current->value = value_copy;
 			return (1);
 		}
@@ -42,7 +43,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (item->key == NULL)
 	{
 		free(item);
-		free(value_copy);
 		return (0);
 	}
 	item->value = value_copy;
