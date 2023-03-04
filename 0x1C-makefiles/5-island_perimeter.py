@@ -11,18 +11,21 @@ def island_perimeter(grid):
     """calculates the perimeter of an island inside grid
         grid: a matrix of integers
     """
-    sides = []
-    length = len(grid)
-    if length == 0:
-        return 0
-    for line in grid:
-        for i in range(len(line)):
-            if line[i] == 1 and len(sides) == 0:
-                sides.append(3)
-            elif line[i] == 1 and len(sides) > 0:
-                sides.append(2)
-    sides.append(1)
     perimeter = 0
-    for i in range(len(sides)):
-        perimeter = perimeter + sides[i]
+    sides = []
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            if grid[i][j] == 1:
+                size = 4
+                if i >= 1 and grid[i][j] == grid[i - 1][j]:
+                    size = size - 1
+                if j >= 1 and grid[i][j] == grid[i][j - 1]:
+                    size = size - 1
+                if i < (len(grid) - 1) and grid[i][j] == grid[i + 1][j]:
+                    size = size - 1
+                if j < (len(grid[i]) - 1) and grid[i][j] == grid[i][j + 1]:
+                    size = size - 1
+                sides.append(size)
+    for k in range(len(sides)):
+        perimeter = perimeter + sides[k]
     return perimeter
