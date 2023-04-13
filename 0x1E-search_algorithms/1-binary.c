@@ -13,12 +13,13 @@ int binary_search(int *array, size_t size, int value)
 	size_t R = size - 1;
 	int m;
 
+	if (array == NULL)
+		return (-1);
+
 	while (L <= R)
 	{
-		/**
-		 * print_array(array, L, R);
-		 * putchar('\n');
-		 */
+		print_array(array, L, R);
+		putchar('\n');
 		m = (int) ((L + R) / 2);
 		if (array[m] > value)
 			R = m - 1;
