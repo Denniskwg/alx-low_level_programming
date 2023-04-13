@@ -5,6 +5,7 @@
  * @array: array to search
  * @size: size of the array
  * @value: value to search
+ * Return: index where value is located
  */
 int binary_search(int *array, size_t size, int value)
 {
@@ -29,6 +30,7 @@ int binary_search(int *array, size_t size, int value)
 /**
  * print_array - prints an array of integers at certain
  * limits
+ * @array: array to print from
  * @L: lower limit
  * @R: upper limit
  */
